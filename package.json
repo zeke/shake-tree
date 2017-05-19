@@ -1,0 +1,23 @@
+{
+  "name": "shake-tree",
+  "version": "1.0.0",
+  "description": "Shake the tastiest fruits from your deep object tree",
+  "main": "index.js",
+  "repository": "https://github.com/zeke/shake-tree",
+  "author": "Zeke Sikelianos <zeke@sikelianos.com>",
+  "license": "MIT",
+  "dependencies": {
+    "flat": "^2.0.1",
+    "lodash.set": "^4.3.2"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "electron-api-docs": "^1.6.8",
+    "mocha": "^3.4.1",
+    "standard": "^10.0.2",
+    "standard-markdown": "^2.3.0"
+  },
+  "scripts": {
+    "test": "mocha && standard && standard-markdown"
+  }
+}
