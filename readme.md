@@ -55,7 +55,7 @@ yarn add shake-tree
 ## Usage
 
 ```js
-const shakeTree = require('.')
+const shakeTree = require('shake-tree')
 
 // Given some arbitrarily-shaped object tree:
 const input = {
