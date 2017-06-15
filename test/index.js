@@ -73,4 +73,17 @@ describe('shakeTree', () => {
       expect(flatKeys.every(key => key.endsWith('.description')))
     })
   })
+
+  describe('options', () => {
+    let shaken
+
+    before(() => {
+      shaken = shakeTree(electronTree, 'description', {flat: true})
+    })
+
+    it('accepts a `flat` boolean that returns a key-value object with deep keys', () => {
+      const keys = Object.keys(shaken)
+      expect(keys).to.include('app.methods.getLoginItemSettings.returns.properties.0.properties.0.description')
+    })
+  })
 })

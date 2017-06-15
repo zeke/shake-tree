@@ -24,10 +24,10 @@ that looks a bit like this:
   slug: 'browser-window',
   websiteUrl: 'http://electron.atom.io/docs/api/browser-window',
   repoUrl: 'https://github.com/electron/electron/blob/v1.4.0/docs/api/browser-window.md',
-  staticMethods: [...],
-  instanceMethods: [...],
-  instanceProperties: [...],
-  instanceEvents: [...]
+  staticMethods: ['...'],
+  instanceMethods: ['...'],
+  instanceProperties: ['...'],
+  instanceEvents: ['...']
 }
 ```
 
@@ -80,6 +80,41 @@ console.log(output)
 // You can also specify multiple keys to match:
 shakeTree(input, ['description', 'title'])
 ```
+
+## Flattening
+
+In some cases you might want the result as flat key-value object with 
+period-delimited strings as keys. In this case, set the `flat` option to `true`:
+
+This is useful if you want to preserve array indexes in the shaken tree.
+
+```js
+const input = {
+  a: [
+    {description: 'first a'},
+    {description: 'second a'}
+  ]
+}
+
+const output = shakeTree(input, 'description', {flat: true})
+
+console.log(output)
+// {
+//   'a.0.description': 'first a',
+//   'a.1.description': 'second a'
+// }
+```
+
+## API
+
+This module exports a single function.
+
+### `shakeTree(tree, targetKeys[, options])
+
+- `tree` - Object (required)
+- `targetKeys` - String or Array of Strings (required)
+- `options` - Object (optional)
+  - `flat` - Boolean (defaults to `false`)
 
 ## Tests
 
